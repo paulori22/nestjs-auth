@@ -1,0 +1,14 @@
+version: "3.0"
+services:
+  db:
+    image: mysql:8.0
+    container_name: db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: root_password_db
+    volumes:
+      - /dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
